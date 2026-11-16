@@ -1,0 +1,81 @@
+{
+  "judul": "Sistem Pakar Identifikasi Hama dan Penyakit Tanaman Padi",
+  "batas": "Aturan berasal dari 2 sumber resmi: IRRI (International Rice Research Institute) dan UC Agriculture & Natural Resources (University of California). Sistem ini hanya mencakup 3 penyakit utama (Blast, Hawar Daun Bakteri, Tungro) dan 2 kondisi hama (serangan Wereng Coklat, serangan Penggerek Batang). Hasilnya merupakan saran awal untuk identifikasi di lapangan, bukan keputusan akhir. Konfirmasi laboratorium tetap diperlukan.",
+  "sumber": {
+    "S1": "Rice Blast, UC Agriculture & Natural Resources (UCANR), https://ipm.ucanr.edu/agriculture/rice/blast/, diakses 17 Nov 2026",
+    "S2": "Rice Knowledge Bank - Diseases and Pests, International Rice Research Institute (IRRI), http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/diseases, diakses 17 Nov 2026"
+  },
+  "aturan": [
+    {
+      "id": "R1",
+      "jika": ["bercak daun berbentuk belah ketupat", "pusat bercak berwarna abu-abu"],
+      "mode": "dan",
+      "maka": "gejala blast daun",
+      "sumber": "S1"
+    },
+    {
+      "id": "R2",
+      "jika": ["gejala blast daun", "kelembaban tinggi atau sering hujan"],
+      "mode": "dan",
+      "maka": "penyakit blast (Pyricularia oryzae)",
+      "sumber": "S1"
+    },
+    {
+      "id": "R3",
+      "jika": ["lesi dimulai dari tepi daun", "jaringan daun mengering berwarna keputihan"],
+      "mode": "dan",
+      "maka": "gejala hawar daun",
+      "sumber": "S2"
+    },
+    {
+      "id": "R4",
+      "jika": ["gejala hawar daun", "ditemukan cairan bakteri pada pagi hari"],
+      "mode": "dan",
+      "maka": "penyakit hawar daun bakteri (Xanthomonas oryzae)",
+      "sumber": "S2"
+    },
+    {
+      "id": "R5",
+      "jika": ["daun menguning atau oranye", "tanaman kerdil atau pertumbuhan terhambat"],
+      "mode": "dan",
+      "maka": "gejala tungro",
+      "sumber": "S2"
+    },
+    {
+      "id": "R6",
+      "jika": ["gejala tungro", "ditemukan wereng hijau di lahan"],
+      "mode": "dan",
+      "maka": "penyakit tungro (virus RTBV/RTSV)",
+      "sumber": "S2"
+    },
+    {
+      "id": "R7",
+      "jika": ["tanaman menguning dan mengering seperti terbakar", "ditemukan wereng coklat di pangkal batang"],
+      "mode": "dan",
+      "maka": "serangan wereng coklat (hopperburn)",
+      "sumber": "S2"
+    },
+    {
+      "id": "R8",
+      "jika": ["pucuk mati dan mudah dicabut", "fase vegetatif"],
+      "mode": "dan",
+      "maka": "gejala sundep",
+      "sumber": "S2"
+    },
+    {
+      "id": "R9",
+      "jika": ["malai putih dan hampa", "fase generatif"],
+      "mode": "dan",
+      "maka": "gejala beluk",
+      "sumber": "S2"
+    },
+    {
+      "id": "R10",
+      "jika": ["gejala sundep", "gejala beluk"],
+      "mode": "atau",
+      "maka": "serangan penggerek batang padi",
+      "sumber": "S2"
+    }
+  ]
+}
+
